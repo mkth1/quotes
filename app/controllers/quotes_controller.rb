@@ -1,7 +1,11 @@
 class QuotesController < ApplicationController
   
   def index
-    @quote = Quote.order("RAND()").first()
+    if Rails.env.production?
+      @quote = Quote.order("RANDOM()").first()
+    else
+      @quote = Quote.order("RAND()").first()
+    end
   end
 
   def new
