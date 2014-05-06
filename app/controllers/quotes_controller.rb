@@ -1,12 +1,6 @@
 class QuotesController < ApplicationController
   
   def index
-    
-    #for postgres random() and for mysql rand()
-    #@randomQuites = Quote.order("RANDOM()")
-    #quotes = Quote.order("RAND()");
-    #@quote = quotes[0];
-
     @quote = Quote.order("RAND()").first()
   end
 
@@ -18,8 +12,8 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     if @quote.save
-      flash[:notice] = @quote.author + " Auote created successfully"
-        redirect_to(:action => 'index')
+      flash[:notice] = @quote.author + " Quote created successfully"
+      redirect_to(root_url)
     else
       render('new')
     end

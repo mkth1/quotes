@@ -1,12 +1,13 @@
-<div class="col-sm-10 wrapper">
-	<% if @quote  %>
-		<em><q><%= @quote.text %></q></em>
-		<footer>
-	       <cite title="Source Title">
-	          - <a href="#"><%= @quote.author %></a>
-	       </cite>
-	    </footer>
-	<% else %>
-		<a class="btn btn-primary" href="/add">Add Quotes</a></li>
-	<% end %>
-</div>
+
+<% if @quote  %>
+	<blockquote class="quotewrapper">
+		<p><%= @quote.text %></p>		
+		<small><%= @quote.author %></small>
+	</blockquote>
+<% else %>
+	<div class="addbtn">
+		<a class="btn btn-primary" href="/add">Add Quotes</a>
+	</div>
+<% end %>
+
+
